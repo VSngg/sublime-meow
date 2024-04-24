@@ -1,51 +1,95 @@
 [
-  {"keys": ["i"], "command": "meow_insert_mode", "context": [{"key": "setting.command_mode"}]},
-  {"keys": ["a"], "command": "meow_insert_mode_append", "context": [{"key": "setting.command_mode"}]},
+  { "keys": ["s"], "command": "meow_insert_mode", "context": [{"key": "setting.command_mode"}] },
+  { "keys": ["a"], "command": "meow_insert_mode_append", "context": [{"key": "setting.command_mode"}] },
 
-  // character
-  {"keys": ["h"], "command": "move", "context": [{"key": "setting.command_mode"}],
-   "args": {"by": "characters", "forward": false}},
-  {"keys": ["t"], "command": "move", "context": [{"key": "setting.command_mode"}],
-   "args": {"by": "characters", "forward": true}},
-  {"keys": ["p"], "command": "move", "context": [{"key": "setting.command_mode"}],
-   "args": {"by": "lines", "forward": false}},
-  {"keys": ["n"], "command": "move",  "context": [{"key": "setting.command_mode"}],
-   "args": {"by": "lines", "forward": true}},
-  {"keys": ["H"], "command": "move", "context": [{"key": "setting.command_mode"}],
-   "args": {"by": "characters", "forward": false, "extend": true}},
-  {"keys": ["T"], "command": "move", "context": [{"key": "setting.command_mode"}],
-   "args": {"by": "characters", "forward": true, "extend": true}},
-  {"keys": ["P"], "command": "move", "context": [{"key": "setting.command_mode"}],
-   "args": {"by": "lines", "forward": false, "extend": true}},
-  {"keys": ["N"], "command": "move",  "context": [{"key": "setting.command_mode"}],
-   "args": {"by": "lines", "forward": true, "extend": true}},
+  // move by character
+  { "keys": ["h"], "command": "move", "args": {"by": "characters", "forward": false}, "context": [{"key": "setting.command_mode"}] },
+  { "keys": ["H"], "command": "move", "args": {"by": "characters", "forward": false, "extend": true}, "context": [{"key": "setting.command_mode"}] },
+
+  { "keys": ["l"], "command": "move", "args": {"by": "characters", "forward": true}, "context": [{"key": "setting.command_mode"}] },
+  { "keys": ["L"], "command": "move", "args": {"by": "characters", "forward": true, "extend": true}, "context": [{"key": "setting.command_mode"}] },
+
+  { "keys": ["k"], "command": "move", "args": {"by": "lines", "forward": false}, "context": [{"key": "setting.command_mode"}] },
+  { "keys": ["K"], "command": "move", "args": {"by": "lines", "forward": false, "extend": true}, "context": [{"key": "setting.command_mode"}] },
+
+  { "keys": ["j"], "command": "move", "args": {"by": "lines", "forward": true}, "context": [{"key": "setting.command_mode"}] },
+  { "keys": ["J"], "command": "move", "args": {"by": "lines", "forward": true, "extend": true}, "context": [{"key": "setting.command_mode"}] },
 
   // word
-  {"keys": ["w"], "command": "meow_next_word", "context": [{"key": "setting.command_mode"}]},
-  {"keys": ["b"], "command": "meow_prev_word", "context": [{"key": "setting.command_mode"}]},
+  { "keys": ["o"], "command": "meow_next_word", "context": [{"key": "setting.command_mode"}] },
+  { "keys": ["O"], "command": "move",  "context": [{"key": "setting.command_mode"}], "args": {"by": "subwords", "forward": true, "extend": false}},
+
+  { "keys": ["i"], "command": "meow_prev_word", "context": [{"key": "setting.command_mode"}] },
+  { "keys": ["I"], "command": "move",  "context": [{"key": "setting.command_mode"}], "args": {"by": "subwords", "forward": false, "extend": false}},
 
   // line 
-  {"keys": ["e"], "command": "expand_selection", "context": [{"key": "setting.command_mode"}],
-   "args": {"to": "line"}},
+  { "keys": ["u"], "command": "move_to", "args": {"to": "bol"}, "context": [{"key": "setting.command_mode"}] },
+  { "keys": ["U"], "command": "move_to", "args": {"to": "bol", "extend": true}, "context": [{"key": "setting.command_mode"}] },
 
-  // deletion
-  {"keys": ["d"], "command": "right_delete", "context": [{"key": "setting.command_mode"}]},
-  {"keys": ["k"], "command": "cut", "context": [{"key": "setting.command_mode"}]},
+  { "keys": ["p"], "command": "move_to", "args": {"to": "eol"}, "context": [{"key": "setting.command_mode"}] },
+  { "keys": ["P"], "command": "move_to", "args": {"to": "eol", "extend": true}, "context": [{"key": "setting.command_mode"}] },
+
+  { "keys": ["e"], "command": "meow_open_line_below", "context": [{"key": "setting.command_mode"}] },
+  { "keys": ["E"], "command": "meow_open_line_above", "context": [{"key": "setting.command_mode"}] },
+
+  { "keys": ["y"], "command": "join_lines", "context": [{"key": "setting.command_mode"}] },
+
+  // file
+  { "keys": ["g", "g"], "command": "move_to", "args": {"to": "bof", "extend": false}, "context": [{"key": "setting.command_mode"}] },
+  { "keys": [" ", "g", "g"], "command": "move_to", "args": {"to": "bof", "extend": true}, "context": [{"key": "setting.command_mode"}] },
+
+  { "keys": ["G"], "command": "move_to", "args": {"to": "eof", "extend": false}, "context": [{"key": "setting.command_mode"}] },
+  { "keys": [" ", "G"], "command": "move_to", "args": {"to": "eof", "extend": true}, "context": [{"key": "setting.command_mode"}] },
+
+  // selection
+  { "keys": [";"], "command": "expand_selection", "context": [{"key": "setting.command_mode"}], "args": {"to": "line"}},
+  { "keys": [":"], "command": "expand_selection", "context": [{"key": "setting.command_mode"}], "args": {"to": "line_prev"} },
+
+  { "keys": ["w"], "command": "find_under_expand", "context": [{"key": "setting.command_mode"}] },
+  { "keys": ["m"], "command": "expand_selection", "args": {"to": "smart"} , "context": [{"key": "setting.command_mode"}] },
+
+  // insert space
+  { "keys": ["."], "command": "insert", "args": {"characters": " "} , "context": [{"key": "setting.command_mode"}] },
+
+  // deletion 
+  { "keys": ["d"], "command": "right_delete", "context": [{"key": "setting.command_mode"}] },
+  { "keys": ["f"], "command": "meow_change", "context": [{"key": "setting.command_mode"}] },
+  { "keys": ["x"], "command": "cut", "context": [{"key": "setting.command_mode"}] },
 
   // copy & paste
-  {"keys": ["x"], "command": "copy", "context": [{"key": "setting.command_mode"}]},
-  {"keys": ["y"], "command": "paste", "context": [{"key": "setting.command_mode"}]},
+  { "keys": ["c"], "command": "copy", "context": [{"key": "setting.command_mode"}] },
+  { "keys": ["v"], "command": "paste", "context": [{"key": "setting.command_mode"}] },
 
   // undo & redo
-  {"keys": ["u"], "command": "undo", "context": [{"key": "setting.command_mode"}]},
-  {"keys": ["U"], "command": "redo", "context": [{"key": "setting.command_mode"}]},
+  { "keys": ["z"], "command": "undo", "context": [{"key": "setting.command_mode"}] },
+  { "keys": ["Z"], "command": "redo", "context": [{"key": "setting.command_mode"}] },
+
+  // search & replace
+  { "keys": ["/"], "command": "show_panel", "args": {"panel": "find", "reverse": false}, "context": [{"key": "setting.command_mode"}] },
+
+  // comment
+  { "keys": ["q"], "command": "toggle_comment", "args": { "block": false }, "context": [{"key": "setting.command_mode"}] },
+
+  // indent
+  { "keys": [">"], "command": "indent", "context": [{"key": "setting.command_mode"}] },
+  { "keys": ["<"], "command": "unindent", "context": [{"key": "setting.command_mode"}] },
+
+  // groups
+  { "keys": [","], "command": "focus_neighboring_group", "context": [{"key": "setting.command_mode"}]  },
+
+  // overlays
+  { "keys": [" ", "f"], "command": "show_overlay", "args": {"overlay": "goto", "show_files": true},"context": [{"key": "setting.command_mode"}] },
+  { "keys": [" ", ";"], "command": "show_overlay", "args": {"overlay": "command_palette"}, "context": [{"key": "setting.command_mode"}] },
+  { "keys": [" ", "e"], "command": "toggle_side_bar", "context": [{"key": "setting.command_mode"}] },
+
 
   // escape
-  {"keys": ["escape"], "command": "meow_command_mode", 
-    "context": [{"key": "setting.is_widget", "operator": "equal", "operand": false}]},
-  {"keys": ["escape"], "command": "single_selection",
+  { "keys": ["escape"], "command": "meow_command_mode", 
+    "context": [{"key": "setting.is_widget", "operator": "equal", "operand": false}] },
+  { "keys": ["escape"], "command": "single_selection",
     "context": [
       {"key": "num_selections", "operator": "not_equal", "operand": 1},
       {"key": "setting.command_mode"}
-    ]},
+    ]
+  },
 ]

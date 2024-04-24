@@ -50,11 +50,29 @@ class MeowNextWordCommand(sublime_plugin.TextCommand):
     Forward one word.
     """
     def run(self, edit):
-        self.view.run_command("move", {"by": "words", "forward": True, "extend": True})
+        self.view.run_command("move", {"by": "subwords", "forward": True, "extend": True})
 
 class MeowPrevWordCommand(sublime_plugin.TextCommand):
     """
     Backward one word.
     """
     def run(self, edit):
-        self.view.run_command("move", {"by": "words", "forward": False, "extend": True})
+        self.view.run_command("move", {"by": "subwords", "forward": False, "extend": True})
+
+class MeowChangeCommand(sublime_plugin.TextCommand):
+    """
+    Change selection
+    """
+    def run(self, edit):
+        self.view.run_command("right_delete")
+        toggle_command_mode(self.view, False)
+
+class MeowOpenLineBelowCommand(sublime_plugin.TextCommand):
+    def run(self, edit):
+        self.view.run_command("move_to", {"to": "eol"})
+        self.view.run_command("insert", {"characters": "\n"})
+
+class MeowOpenLineAboveCommand(sublime_plugin.TextCommand):
+    def run(self, edit):
+        self.view.run_command("move_to", {"to": "bol"})
+        self.view.run_command("insert", {"characters": "\n"})
