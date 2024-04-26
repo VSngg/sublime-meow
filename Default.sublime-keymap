@@ -17,7 +17,7 @@
 
   // word
   { "keys": ["o"], "command": "meow_next_word", "context": [{"key": "setting.command_mode"}] },
-  { "keys": ["O"], "command": "move",  "context": [{"key": "setting.command_mode"}], "args": {"by": "subwords", "forward": true, "extend": false}},
+  { "keys": ["O"], "command": "move",  "context": [{"key": "setting.command_mode"}], "args": {"by": "subword_ends", "forward": true, "extend": false}},
 
   { "keys": ["i"], "command": "meow_prev_word", "context": [{"key": "setting.command_mode"}] },
   { "keys": ["I"], "command": "move",  "context": [{"key": "setting.command_mode"}], "args": {"by": "subwords", "forward": false, "extend": false}},
@@ -35,6 +35,9 @@
   { "keys": ["y"], "command": "join_lines", "context": [{"key": "setting.command_mode"}] },
 
   // file
+  { "keys": ["alt+j"], "command": "move", "args": {"by": "pages", "forward": true}, "context": [{"key": "setting.command_mode"}] },
+  { "keys": ["alt+k"], "command": "move", "args": {"by": "pages", "forward": false}, "context": [{"key": "setting.command_mode"}] },
+
   { "keys": ["g", "g"], "command": "move_to", "args": {"to": "bof", "extend": false}, "context": [{"key": "setting.command_mode"}] },
   { "keys": [" ", "g", "g"], "command": "move_to", "args": {"to": "bof", "extend": true}, "context": [{"key": "setting.command_mode"}] },
 
@@ -47,6 +50,8 @@
 
   { "keys": ["w"], "command": "find_under_expand", "context": [{"key": "setting.command_mode"}] },
   { "keys": ["m"], "command": "expand_selection", "args": {"to": "smart"} , "context": [{"key": "setting.command_mode"}] },
+  { "keys": ["B"], "command": "select_lines", "args": {"forward": false}, "context": [{"key": "setting.command_mode"}] },
+  { "keys": ["b"], "command": "select_lines", "args": {"forward": true}, "context": [{"key": "setting.command_mode"}] },
 
   // insert space
   { "keys": ["."], "command": "insert", "args": {"characters": " "} , "context": [{"key": "setting.command_mode"}] },
@@ -58,7 +63,9 @@
 
   // copy & paste
   { "keys": ["c"], "command": "copy", "context": [{"key": "setting.command_mode"}] },
+  { "keys": ["C"], "command": "meow_copy_line", "context": [{"key": "setting.command_mode"}] },
   { "keys": ["v"], "command": "paste", "context": [{"key": "setting.command_mode"}] },
+  { "keys": ["V"], "command": "duplicate_line", "context": [{"key": "setting.command_mode"}] },
 
   // undo & redo
   { "keys": ["z"], "command": "undo", "context": [{"key": "setting.command_mode"}] },
@@ -74,14 +81,23 @@
   { "keys": [">"], "command": "indent", "context": [{"key": "setting.command_mode"}] },
   { "keys": ["<"], "command": "unindent", "context": [{"key": "setting.command_mode"}] },
 
-  // groups
-  { "keys": [","], "command": "focus_neighboring_group", "context": [{"key": "setting.command_mode"}]  },
+  // groups (requires origami)
+  { "keys": [","], "command": "focus_neighboring_group", "context": [{"key": "setting.command_mode"}] },
+  { "keys": ["g", "v"], "command": "clone_file_to_pane", "args": {"direction": "right"} },
+  { "keys": ["g", "s"], "command": "clone_file_to_pane", "args": {"direction": "down"} },
+  { "keys": ["g", "c"], "command": "destroy_pane", "args": {"direction": "self"} },
+
+  { "keys": ["g", "n"], "command": "next_view_in_stack", "context": [{"key": "setting.command_mode"}] },
+  { "keys": ["g", "p"], "command": "prev_view_in_stack","context": [{"key": "setting.command_mode"}] },
 
   // overlays
   { "keys": [" ", "f"], "command": "show_overlay", "args": {"overlay": "goto", "show_files": true},"context": [{"key": "setting.command_mode"}] },
   { "keys": [" ", ";"], "command": "show_overlay", "args": {"overlay": "command_palette"}, "context": [{"key": "setting.command_mode"}] },
   { "keys": [" ", "e"], "command": "toggle_side_bar", "context": [{"key": "setting.command_mode"}] },
 
+  // misc
+  { "keys": ["g", "d"], "command": "goto_definition", "context": [{"key": "setting.command_mode"}] },
+  { "keys": ["g", "b"], "command": "jump_back", "context": [{"key": "setting.command_mode"}] },
 
   // escape
   { "keys": ["escape"], "command": "meow_command_mode", 
