@@ -6,10 +6,13 @@ A heavily customized fork of https://github.com/meow-edit/sublime-meow
 
 # Keymap
 
+|     |     |
 | --- | --- |
 | `s` |  Start insert mode |
 | `a` |  Start insert mode (append) |
+| `esc` | Exit insert mode/ Reset to single selection |
 
+|     |     |
 | --- | --- |
 | `h` |  Move left by 1 character |
 | `l` |  Move right by 1 character |
@@ -20,12 +23,14 @@ A heavily customized fork of https://github.com/meow-edit/sublime-meow
 | `J` |  Extend selection to line below |
 | `K` |  Extend selection to line above |
 
+|     |     |
 | --- | --- |
 | `o` |  Add next word to selection |
 | `O` |  Move to next word |
 | `i` |  Add previous word to selection |
 | `I` |  Move to previous word |
 
+|     |     |
 | --- | --- |
 | `u` |  Move to the beginning of line |
 | `U` |  Select to the beginning of line |
@@ -35,6 +40,7 @@ A heavily customized fork of https://github.com/meow-edit/sublime-meow
 | `E` |  Insert blank line above |
 | `y` |  Join lines |
 
+|     |     |
 | --- | --- |
 | `alt+j` | Move down by page |
 | `alt+k` | Move up by page |
@@ -43,6 +49,7 @@ A heavily customized fork of https://github.com/meow-edit/sublime-meow
 | `G` | Move to the end of file  |
 | ` `, `G` | Select to the end of file  |
 
+|     |     |
 | --- | --- |
 | `;` | Select whole line (repeat to add next line to selection)  |
 | `:` | Select whole line (repeat to add previous line to selection)  |
@@ -51,9 +58,11 @@ A heavily customized fork of https://github.com/meow-edit/sublime-meow
 | `b` | Create cursor below  |
 | `B` | Create cursor above  |
 
+|     |     |
 | --- | --- |
 | `.` | Insert space character |
 
+|     |     |
 | --- | --- |
 | `d` | Delete selection |
 | `f` | Change selection |
@@ -65,12 +74,14 @@ A heavily customized fork of https://github.com/meow-edit/sublime-meow
 | `z` | Undo |
 | `Z` | Redo  |
 
+|     |     |
 | --- | --- |
 | `/` | Search  |
 | `q` | Toggle comment  |
 | `>` | Indent |
 | `<` | Unindent  |
 
+|     |     |
 | --- | --- |
 | `,` | Switch to next pane  |
 | `g`, `v` | Split current pane vertically  |
@@ -79,6 +90,7 @@ A heavily customized fork of https://github.com/meow-edit/sublime-meow
 | `g`, `n` | Go to the next tab  |
 | `g`, `p` | Go to the previous tab |
 
+|     |     |
 | --- | --- |
 | ` `, `f` | Open "Goto anything" panel  |
 | ` `, `;` | Open command palette  |
