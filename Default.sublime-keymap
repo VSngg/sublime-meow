@@ -83,9 +83,9 @@
 
   // groups (requires origami)
   { "keys": [","], "command": "focus_neighboring_group", "context": [{"key": "setting.command_mode"}] },
-  { "keys": ["g", "v"], "command": "clone_file_to_pane", "args": {"direction": "right"} },
-  { "keys": ["g", "s"], "command": "clone_file_to_pane", "args": {"direction": "down"} },
-  { "keys": ["g", "c"], "command": "destroy_pane", "args": {"direction": "self"} },
+  { "keys": ["g", "v"], "command": "clone_file_to_pane", "args": {"direction": "right"}, "context": [{"key": "setting.command_mode"}] },
+  { "keys": ["g", "s"], "command": "clone_file_to_pane", "args": {"direction": "down"}, "context": [{"key": "setting.command_mode"}] },
+  { "keys": ["g", "c"], "command": "destroy_pane", "args": {"direction": "self"}, "context": [{"key": "setting.command_mode"}] },
 
   { "keys": ["g", "n"], "command": "next_view_in_stack", "context": [{"key": "setting.command_mode"}] },
   { "keys": ["g", "p"], "command": "prev_view_in_stack","context": [{"key": "setting.command_mode"}] },
