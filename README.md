@@ -54,6 +54,7 @@ A heavily customized fork of https://github.com/meow-edit/sublime-meow
 | `;` | Select whole line (repeat to add next line to selection)  |
 | `:` | Select whole line (repeat to add previous line to selection)  |
 | `w` | Select word under cursor (repeat to add next occurance to selection)  |
+| ` `, `w` | Skip selection under cursor |
 | `m` | Smart expand selection |
 | `b` | Create cursor below  |
 | `B` | Create cursor above  |
@@ -67,6 +68,7 @@ A heavily customized fork of https://github.com/meow-edit/sublime-meow
 | `d` | Delete selection |
 | `f` | Change selection |
 | `x` | Cut selection |
+| `X` | Cut line |
 | `c` | Copy selection |
 | `C` | Copy line |
 | `v` | Paste |

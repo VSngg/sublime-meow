@@ -76,8 +76,14 @@ class MeowOpenLineAboveCommand(sublime_plugin.TextCommand):
     def run(self, edit):
         self.view.run_command("move_to", {"to": "bol"})
         self.view.run_command("insert", {"characters": "\n"})
+        self.view.run_command("move", {"by": "lines", "forward": False})
 
 class MeowCopyLineCommand(sublime_plugin.TextCommand):
     def run(self, edit):
         self.view.run_command("expand_selection", {"to": "line"})
         self.view.run_command("copy")
+
+class MeowCutLineCommand(sublime_plugin.TextCommand):
+    def run(self, edit):
+        self.view.run_command("expand_selection", {"to": "line"})
+        self.view.run_command("cut")

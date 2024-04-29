@@ -49,6 +49,7 @@
   { "keys": [":"], "command": "expand_selection", "context": [{"key": "setting.command_mode"}], "args": {"to": "line_prev"} },
 
   { "keys": ["w"], "command": "find_under_expand", "context": [{"key": "setting.command_mode"}] },
+  { "keys": [" ", "w"], "command": "find_under_expand_skip", "context": [{"key": "setting.command_mode"}] },
   { "keys": ["m"], "command": "expand_selection", "args": {"to": "smart"} , "context": [{"key": "setting.command_mode"}] },
   { "keys": ["B"], "command": "select_lines", "args": {"forward": false}, "context": [{"key": "setting.command_mode"}] },
   { "keys": ["b"], "command": "select_lines", "args": {"forward": true}, "context": [{"key": "setting.command_mode"}] },
@@ -60,6 +61,7 @@
   { "keys": ["d"], "command": "right_delete", "context": [{"key": "setting.command_mode"}] },
   { "keys": ["f"], "command": "meow_change", "context": [{"key": "setting.command_mode"}] },
   { "keys": ["x"], "command": "cut", "context": [{"key": "setting.command_mode"}] },
+  { "keys": ["X"], "command": "meow_cut_line", "context": [{"key": "setting.command_mode"}] },
 
   // copy & paste
   { "keys": ["c"], "command": "copy", "context": [{"key": "setting.command_mode"}] },
