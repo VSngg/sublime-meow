@@ -17,10 +17,12 @@
 
   // word
   { "keys": ["o"], "command": "meow_next_word", "context": [{"key": "setting.command_mode"}] },
-  { "keys": ["O"], "command": "move",  "context": [{"key": "setting.command_mode"}], "args": {"by": "subword_ends", "forward": true, "extend": false}},
+  { "keys": ["O"], "command": "move", "context": [{"key": "setting.command_mode"}], "args": {"by": "subword_ends", "forward": true, "extend": false}},
+  { "keys": ["alt+o"], "command": "move", "context": [{"key": "setting.command_mode"}], "args": {"by": "word_ends", "forward": true, "extend": false}},
 
   { "keys": ["i"], "command": "meow_prev_word", "context": [{"key": "setting.command_mode"}] },
-  { "keys": ["I"], "command": "move",  "context": [{"key": "setting.command_mode"}], "args": {"by": "subwords", "forward": false, "extend": false}},
+  { "keys": ["I"], "command": "move", "context": [{"key": "setting.command_mode"}], "args": {"by": "subwords", "forward": false, "extend": false}},
+  { "keys": ["alt+i"], "command": "move", "context": [{"key": "setting.command_mode"}], "args": {"by": "words", "forward": false, "extend": false}},
 
   // line 
   { "keys": ["u"], "command": "move_to", "args": {"to": "bol"}, "context": [{"key": "setting.command_mode"}] },
@@ -75,9 +77,11 @@
 
   // search & replace
   { "keys": ["/"], "command": "show_panel", "args": {"panel": "find", "reverse": false}, "context": [{"key": "setting.command_mode"}] },
+  { "keys": ["?"], "command": "show_panel", "args": {"panel": "find_in_files", "reverse": false}, "context": [{"key": "setting.command_mode"}] },
 
   // comment
   { "keys": ["q"], "command": "toggle_comment", "args": { "block": false }, "context": [{"key": "setting.command_mode"}] },
+  { "keys": ["r"], "command": "reindent", "context": [{"key": "setting.command_mode"}] },
 
   // indent
   { "keys": [">"], "command": "indent", "context": [{"key": "setting.command_mode"}] },
@@ -96,6 +100,8 @@
   { "keys": [" ", "f"], "command": "show_overlay", "args": {"overlay": "goto", "show_files": true},"context": [{"key": "setting.command_mode"}] },
   { "keys": [" ", ";"], "command": "show_overlay", "args": {"overlay": "command_palette"}, "context": [{"key": "setting.command_mode"}] },
   { "keys": [" ", "e"], "command": "toggle_side_bar", "context": [{"key": "setting.command_mode"}] },
+  { "keys": [" ", "b"], "command": "build", "context": [{"key": "setting.command_mode"}] },
+  { "keys": [" ", "b"], "command": "set_build_system", "context": [{"key": "setting.command_mode"}] },
 
   // misc
   { "keys": ["g", "d"], "command": "goto_definition", "context": [{"key": "setting.command_mode"}] },
